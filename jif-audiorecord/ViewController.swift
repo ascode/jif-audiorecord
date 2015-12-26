@@ -58,7 +58,7 @@ class ViewController: UIViewController {
                     let access_token = arrdata?.objectForKey("access_token")! as! String //得到access_token
                     let urlRequest = NSMutableURLRequest(URL: NSURL(string: "http://vop.baidu.com/server_api?lan=zh&token=\(access_token)&cuid=jinfei")!)//配置url和控制信息
                     urlRequest.HTTPMethod = "POST"
-                    urlRequest.setValue("audio/pcm;rate=8000", forHTTPHeaderField: "Content-Type")//设置语音格式和采样率
+                    urlRequest.setValue("audio/amr;rate=8000", forHTTPHeaderField: "Content-Type")//设置语音格式和采样率
                     urlRequest.setValue("\(recdata?.length)", forHTTPHeaderField: "Content-length")//设置原始语音长度
 
                     urlRequest.HTTPBody = base64Data //设置传送的语音数据
