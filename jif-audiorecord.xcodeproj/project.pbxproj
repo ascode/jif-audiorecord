@@ -12,6 +12,8 @@
 		EE07FCA61C2E4582005BFC3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE07FCA41C2E4582005BFC3E /* Main.storyboard */; };
 		EE07FCA81C2E4582005BFC3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE07FCA71C2E4582005BFC3E /* Assets.xcassets */; };
 		EE07FCAB1C2E4582005BFC3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE07FCA91C2E4582005BFC3E /* LaunchScreen.storyboard */; };
+		EEEDA3811C3A4EA7004115F2 /* 少女时代-TaeTiSeo - Twinkle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EEEDA3801C3A4EA7004115F2 /* 少女时代-TaeTiSeo - Twinkle.mp3 */; };
+		EEEDA3831C3A4F9A004115F2 /* 嗨.jpg1 in Resources */ = {isa = PBXBuildFile; fileRef = EEEDA3821C3A4F9A004115F2 /* 嗨.jpg1 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,9 @@
 		EE07FCA71C2E4582005BFC3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE07FCAA1C2E4582005BFC3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE07FCAC1C2E4582005BFC3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EEEDA3801C3A4EA7004115F2 /* 少女时代-TaeTiSeo - Twinkle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "少女时代-TaeTiSeo - Twinkle.mp3"; sourceTree = "<group>"; };
+		EEEDA3821C3A4F9A004115F2 /* 嗨.jpg1 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "嗨.jpg1"; sourceTree = "<group>"; };
+		EEEDA3841C3A5050004115F2 /* aa.pcm */ = {isa = PBXFileReference; lastKnownFileType = file; path = aa.pcm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +62,11 @@
 				EE07FCA01C2E4582005BFC3E /* AppDelegate.swift */,
 				EE07FCA21C2E4582005BFC3E /* ViewController.swift */,
 				EE07FCA41C2E4582005BFC3E /* Main.storyboard */,
+				EEEDA3821C3A4F9A004115F2 /* 嗨.jpg1 */,
+				EEEDA3801C3A4EA7004115F2 /* 少女时代-TaeTiSeo - Twinkle.mp3 */,
 				EE07FCA71C2E4582005BFC3E /* Assets.xcassets */,
 				EE07FCA91C2E4582005BFC3E /* LaunchScreen.storyboard */,
+				EEEDA3841C3A5050004115F2 /* aa.pcm */,
 				EE07FCAC1C2E4582005BFC3E /* Info.plist */,
 			);
 			path = "jif-audiorecord";
@@ -122,7 +130,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEEDA3811C3A4EA7004115F2 /* 少女时代-TaeTiSeo - Twinkle.mp3 in Resources */,
 				EE07FCAB1C2E4582005BFC3E /* LaunchScreen.storyboard in Resources */,
+				EEEDA3831C3A4F9A004115F2 /* 嗨.jpg1 in Resources */,
 				EE07FCA81C2E4582005BFC3E /* Assets.xcassets in Resources */,
 				EE07FCA61C2E4582005BFC3E /* Main.storyboard in Resources */,
 			);
@@ -286,6 +296,7 @@
 				EE07FCB11C2E4582005BFC3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

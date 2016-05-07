@@ -23,8 +23,8 @@ class ViewController: UIViewController {
         avUrl = (NSFileManager.defaultManager().URLsForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomains: NSSearchPathDomainMask.AllDomainsMask)[0] as NSURL).URLByAppendingPathComponent("rec")
         //压缩格式支持：pcm（不压缩）、wav、opus、speex、amr、x-flac
         let recordSettings:[String : AnyObject] = [
-            AVFormatIDKey: NSNumber(unsignedInt: kAudioFormatLinearPCM),
-            //AVEncoderAudioQualityKey : AVAudioQuality.Max.rawValue,
+            AVFormatIDKey: NSNumber(unsignedInt: kAudioFormatLinearPCM ),
+            AVEncoderAudioQualityKey : AVAudioQuality.Max.rawValue,
             AVEncoderBitRateKey : 8000,
             AVNumberOfChannelsKey: 1
         ]
@@ -45,8 +45,22 @@ class ViewController: UIViewController {
     
     
     @IBAction func btnASRPressed(sender: AnyObject) {
-        let recdata = NSData(contentsOfURL: avUrl)//获取语音文件
-        let base64Data = recdata?.base64EncodedDataWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)//将语音数据转换成base64编码数据
+        var recdata = NSData(contentsOfURL: avUrl)//获取语音文件
+//        let paths : NSArray = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+//        print(paths)
+//        let documentsDirectory : NSString = paths.objectAtIndex(0) as! NSString
+//        let appFile : NSString = documentsDirectory.stringByAppendingPathComponent("example_localRecord")
+//        
+//        let recdata : NSData = NSData(contentsOfFile: "example_localRecord.pcm")!
+//        
+//        print(NSBundle.mainBundle().pathForResource("example_localRecord", ofType: "pcm")!)
+//        let recdata = NSData(contentsOfFile: NSBundle.mainBundle().pathForResource("example_localRecord.pcm", ofType: "pcm")!)
+        print(recdata)
+        //print(NSBundle.mainBundle().pathForResource("Info.plist", ofType: nil))
+        print(NSBundle.mainBundle().URLForResource("少女时代-TaeTiSeo - Twinkle", withExtension: "mp3")!)
+        print(NSBundle.mainBundle().URLForResource("tt.mp3", withExtension: nil))
+        print(NSBundle.mainBundle().URLForResource("aa.pcm", withExtension: nil))
+        let base64Data = recdata!.base64EncodedDataWithOptions(NSDataBase64EncodingOptions.EncodingEndLineWithLineFeed)  //将语音数据转换成base64编码数据
         
         let urlForAccessToken = NSURL(string: "https://openapi.baidu.com/oauth/2.0/token?grant_type=client_credentials&client_id=tvSQAmNW3ka2IFlkDCYlbCMG&client_secret=2c289b2656bc5859d0100fd27f5a8762")
         if let theurl = urlForAccessToken {
@@ -58,8 +72,10 @@ class ViewController: UIViewController {
                     let access_token = arrdata?.objectForKey("access_token")! as! String //得到access_token
                     let urlRequest = NSMutableURLRequest(URL: NSURL(string: "http://vop.baidu.com/server_api?lan=zh&token=\(access_token)&cuid=jinfei")!)//配置url和控制信息
                     urlRequest.HTTPMethod = "POST"
-                    urlRequest.setValue("audio/amr;rate=8000", forHTTPHeaderField: "Content-Type")//设置语音格式和采样率
-                    urlRequest.setValue("\(recdata?.length)", forHTTPHeaderField: "Content-length")//设置原始语音长度
+                    urlRequest.setValue("audio/pcm;rate=8000", forHTTPHeaderField: "Content-Type")//设置语音格式和采样率
+                    print(recdata!.length)
+                    //print(base64Data)
+                    urlRequest.setValue("\(recdata!.length)", forHTTPHeaderField: "Content-length")//设置原始语音长度
 
                     urlRequest.HTTPBody = base64Data //设置传送的语音数据
                     
